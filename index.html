@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Yamaha Bike Care Tirupati – Professional bike servicing, engine repair, oil change, brake & clutch service. Genuine spare parts and expert mechanics in Tirupati, Andhra Pradesh." />
+  <meta name="keywords" content="Yamaha service center Tirupati, bike repair Tirupati, Yamaha Bike Care, two wheeler service Tirupati" />
+  <meta name="author" content="Yamaha Bike Care Tirupati" />
+  <title>Yamaha Bike Care – Trusted Bike Service in Tirupati</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --red: #E60012;
+      --red-dark: #b8000e;
+      --blue: #003087;
+      --blue-light: #1a4db8;
+      --black: #0a0a0a;
+      --dark: #111111;
+      --darker: #0d0d0d;
+      --card-bg: #161616;
+      --border: rgba(255,255,255,0.07);
+      --white: #ffffff;
+      --gray: #999999;
+      --gray-light: #cccccc;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-heading: 'Rajdhani', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 2px; }
+
+    /* ===== NOISE TEXTURE OVERLAY ===== */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 9999; opacity: 0.4;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+    nav.scrolled { box-shadow: 0 4px 30px rgba(230,0,18,0.1); }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-logo .logo-icon {
+      width: 36px; height: 36px;
+      background: var(--red);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .nav-logo span {
+      font-family: var(--font-heading);
+      font-size: 1.1rem; font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .nav-logo span strong { color: var(--red); }
+
+    .nav-links {
+      display: flex; gap: 32px; list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-heading);
+      font-size: 0.95rem; font-weight: 600;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--gray-light);
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 2px; background: var(--red);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--red); color: var(--white);
+      padding: 9px 22px; border-radius: 4px;
+      font-family: var(--font-heading); font-weight: 700;
+      font-size: 0.9rem; letter-spacing: 1px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { background: var(--red-dark); transform: translateY(-1px); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--white); border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    #home {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 100px 5% 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Diagonal red accent stripe */
+    #home::before {
+      content: '';
+      position: absolute;
+      top: -10%; right: -5%;
+      width: 55%; height: 130%;
+      background: linear-gradient(135deg, rgba(230,0,18,0.06) 0%, rgba(0,48,135,0.04) 100%);
+      transform: skewX(-8deg);
+      border-left: 1px solid rgba(230,0,18,0.15);
+    }
+
+    /* Grid lines background */
+    #home::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 700px;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(230,0,18,0.1); border: 1px solid rgba(230,0,18,0.3);
+      padding: 6px 16px; border-radius: 40px;
+      font-family: var(--font-heading); font-size: 0.85rem; font-weight: 600;
+      letter-spacing: 2px; text-transform: uppercase; color: var(--red);
+      margin-bottom: 24px;
+    }
+    .hero-badge .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--red); animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 1;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .hero-title .accent { color: var(--red); }
+    .hero-title .line-2 { color: var(--gray-light); font-size: 75%; }
+
+    .hero-sub {
+      font-size: 1.1rem; color: var(--gray); font-weight: 300;
+      max-width: 500px; margin-bottom: 40px; line-height: 1.7;
+    }
+
+    .hero-btns {
+      display: flex; gap: 16px; flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--red);
+      padding: 15px 32px; border-radius: 4px;
+      font-family: var(--font-heading); font-weight: 700;
+      font-size: 1rem; letter-spacing: 1.5px; text-transform: uppercase;
+      transition: all 0.25s;
+      box-shadow: 0 4px 20px rgba(230,0,18,0.3);
+    }
+    .btn-primary:hover {
+      background: var(--red-dark); transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(230,0,18,0.4);
+    }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 10px;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 15px 32px; border-radius: 4px;
+      font-family: var(--font-heading); font-weight: 700;
+      font-size: 1rem; letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--white); transition: all 0.25s;
+    }
+    .btn-secondary:hover { border-color: var(--white); background: rgba(255,255,255,0.05); }
+
+    .hero-stats {
+      display: flex; gap: 40px; margin-top: 60px;
+      padding-top: 40px; border-top: 1px solid var(--border);
+    }
+    .stat { }
+    .stat .num {
+      font-family: var(--font-display); font-size: 2.4rem;
+      color: var(--red); line-height: 1;
+    }
+    .stat .label {
+      font-size: 0.8rem; color: var(--gray); letter-spacing: 1px; text-transform: uppercase;
+    }
+
+    /* ===== SECTION BASE ===== */
+    section { padding: 100px 5%; }
+    .section-tag {
+      font-family: var(--font-heading);
+      font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--red); margin-bottom: 12px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-tag::before {
+      content: ''; display: block; width: 28px; height: 2px; background: var(--red);
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 1.05; letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      color: var(--gray); font-size: 1rem; max-width: 500px;
+      margin-bottom: 60px; font-weight: 300;
+    }
+
+    /* ===== SERVICES ===== */
+    #services {
+      background: var(--darker);
+      position: relative; overflow: hidden;
+    }
+    #services::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--red), transparent);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 36px 32px;
+      position: relative; overflow: hidden;
+      cursor: default;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--red), var(--blue-light));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(230,0,18,0.3);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      width: 56px; height: 56px; border-radius: 12px;
+      background: rgba(230,0,18,0.1); border: 1px solid rgba(230,0,18,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; margin-bottom: 20px;
+      transition: background 0.3s;
+    }
+    .service-card:hover .service-icon {
+      background: rgba(230,0,18,0.2);
+    }
+    .service-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem; font-weight: 700;
+      letter-spacing: 1px; margin-bottom: 10px;
+    }
+    .service-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.65; }
+
+    /* ===== WHY US ===== */
+    #why {
+      background: var(--black);
+    }
+    .why-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+    }
+    .why-list { display: flex; flex-direction: column; gap: 24px; }
+    .why-item {
+      display: flex; gap: 20px; align-items: flex-start;
+      padding: 24px; background: var(--card-bg);
+      border: 1px solid var(--border); border-radius: 8px;
+      transition: border-color 0.3s;
+    }
+    .why-item:hover { border-color: rgba(230,0,18,0.3); }
+    .why-num {
+      font-family: var(--font-display); font-size: 2.5rem;
+      color: rgba(230,0,18,0.2); line-height: 1; flex-shrink: 0;
+      min-width: 48px;
+    }
+    .why-item h4 {
+      font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .why-item p { font-size: 0.88rem; color: var(--gray); }
+
+    .why-visual {
+      position: relative; display: flex; align-items: center; justify-content: center;
+    }
+    .why-circle {
+      width: 320px; height: 320px; border-radius: 50%;
+      border: 1px solid rgba(230,0,18,0.2);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .why-circle::before {
+      content: '';
+      position: absolute; inset: 20px; border-radius: 50%;
+      border: 1px dashed rgba(230,0,18,0.15);
+      animation: rotateSlow 20s linear infinite;
+    }
+    .why-circle::after {
+      content: '';
+      position: absolute; inset: 50px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(230,0,18,0.08) 0%, transparent 70%);
+    }
+    @keyframes rotateSlow { to { transform: rotate(360deg); } }
+    .why-center {
+      text-align: center; position: relative; z-index: 1;
+    }
+    .why-center .big { font-family: var(--font-display); font-size: 5rem; color: var(--red); line-height: 1; }
+    .why-center small { font-family: var(--font-heading); font-size: 0.85rem; color: var(--gray); letter-spacing: 2px; text-transform: uppercase; }
+
+    /* ===== CONTACT ===== */
+    #contact {
+      background: var(--darker);
+      position: relative; overflow: hidden;
+    }
+    #contact::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--blue), transparent);
+    }
+
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 20px; }
+    .contact-item {
+      display: flex; gap: 18px; align-items: flex-start;
+      padding: 22px; background: var(--card-bg);
+      border: 1px solid var(--border); border-radius: 8px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .contact-item:hover { border-color: rgba(0,48,135,0.5); transform: translateX(4px); }
+    .contact-item-icon {
+      width: 44px; height: 44px; border-radius: 8px;
+      background: rgba(0,48,135,0.15); border: 1px solid rgba(0,48,135,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .contact-item-text label {
+      display: block; font-family: var(--font-heading);
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gray); margin-bottom: 4px;
+    }
+    .contact-item-text span {
+      font-size: 0.95rem; color: var(--white); font-weight: 400;
+    }
+    .contact-item-text a { color: var(--white); transition: color 0.2s; }
+    .contact-item-text a:hover { color: var(--red); }
+
+    .contact-form-side { }
+    .form-title {
+      font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700;
+      margin-bottom: 24px; letter-spacing: 1px;
+    }
+    .hours-card {
+      background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 8px; padding: 28px; margin-bottom: 20px;
+    }
+    .hours-card h4 {
+      font-family: var(--font-heading); font-weight: 700;
+      letter-spacing: 1px; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hours-card h4 span { font-size: 1.1rem; }
+    .hours-row {
+      display: flex; justify-content: space-between;
+      padding: 10px 0; border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row .day { color: var(--gray); }
+    .hours-row .time { color: var(--white); font-weight: 500; }
+    .hours-row .time.closed { color: var(--red); }
+
+    .wa-card {
+      background: linear-gradient(135deg, rgba(37,211,102,0.1), rgba(37,211,102,0.05));
+      border: 1px solid rgba(37,211,102,0.25);
+      border-radius: 8px; padding: 24px;
+      display: flex; align-items: center; gap: 16px;
+      cursor: pointer; transition: all 0.25s;
+      text-decoration: none; color: var(--white);
+    }
+    .wa-card:hover {
+      background: linear-gradient(135deg, rgba(37,211,102,0.2), rgba(37,211,102,0.1));
+      transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.15);
+    }
+    .wa-card-icon { font-size: 2.5rem; line-height: 1; }
+    .wa-card h5 { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; margin-bottom: 2px; }
+    .wa-card p { font-size: 0.85rem; color: var(--gray); }
+
+    /* ===== MAP ===== */
+    #map-section {
+      padding: 0;
+      position: relative;
+    }
+    .map-header {
+      padding: 80px 5% 40px;
+      background: var(--black);
+      text-align: center;
+    }
+    .map-header .section-tag { justify-content: center; }
+    .map-header .section-tag::before { display: none; }
+    .map-header .section-title { text-align: center; }
+
+    .map-wrapper {
+      position: relative;
+      height: 450px;
+      border-top: 2px solid var(--red);
+    }
+    .map-wrapper iframe {
+      width: 100%; height: 100%; border: none;
+      filter: grayscale(40%) brightness(0.85) contrast(1.1);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--darker);
+      border-top: 1px solid var(--border);
+      padding: 40px 5%;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: var(--font-display); font-size: 1.8rem;
+      letter-spacing: 3px; margin-bottom: 12px;
+    }
+    .footer-logo span { color: var(--red); }
+    footer p { color: var(--gray); font-size: 0.85rem; }
+    .footer-links {
+      display: flex; justify-content: center; gap: 24px;
+      margin: 20px 0; flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: var(--gray); font-size: 0.85rem; font-family: var(--font-heading);
+      font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--red); }
+
+    /* ===== FLOATING WA BUTTON ===== */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px;
+      z-index: 999;
+      width: 60px; height: 60px; border-radius: 50%;
+      background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+      transition: transform 0.25s, box-shadow 0.25s;
+      animation: waPop 0.6s 1s both;
+    }
+    @keyframes waPop {
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .wa-float:hover {
+      transform: scale(1.12);
+      box-shadow: 0 10px 36px rgba(37,211,102,0.6);
+    }
+    .wa-float svg { width: 30px; height: 30px; fill: white; }
+    .wa-float-label {
+      position: absolute; right: 70px;
+      background: var(--white); color: var(--black);
+      padding: 6px 14px; border-radius: 20px;
+      font-family: var(--font-heading); font-size: 0.85rem; font-weight: 700;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      opacity: 0; transform: translateX(8px);
+      transition: all 0.25s;
+      pointer-events: none;
+    }
+    .wa-float:hover .wa-float-label { opacity: 1; transform: translateX(0); }
+
+    /* ===== SCROLL ANIMATIONS ===== */
+    .reveal {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left {
+      opacity: 0; transform: translateX(-40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right {
+      opacity: 0; transform: translateX(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+    .delay-5 { transition-delay: 0.5s; }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 768px) {
+      nav { padding: 0 4%; }
+      .nav-links { display: none; flex-direction: column; gap: 0;
+        position: absolute; top: 68px; left: 0; right: 0;
+        background: rgba(10,10,10,0.98);
+        border-bottom: 1px solid var(--border);
+        padding: 16px 0;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { padding: 12px 24px; }
+      .nav-links a::after { display: none; }
+      .nav-cta { display: none; }
+      .hamburger { display: flex; }
+
+      section { padding: 70px 4%; }
+      .hero-stats { gap: 24px; flex-wrap: wrap; }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .why-visual { display: none; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .map-wrapper { height: 320px; }
+      .wa-float { bottom: 20px; right: 20px; width: 54px; height: 54px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-btns { flex-direction: column; }
+      .btn-primary, .btn-secondary { justify-content: center; }
+      .why-circle { width: 240px; height: 240px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <div class="logo-icon">🏍️</div>
+      <span><strong>Yamaha</strong> Bike Care</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#map-section">Location</a></li>
+    </ul>
+    <a href="https://wa.me/9866363599" target="_blank" class="nav-cta">WhatsApp Us</a>
+    <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span class="dot"></span> Now Serving Tirupati
+      </div>
+      <h1 class="hero-title reveal delay-1">
+        Yamaha<br>
+        <span class="accent">Bike Care</span><br>
+        <span class="line-2">Trusted Service.</span>
+      </h1>
+      <p class="hero-sub reveal delay-2">
+        Professional servicing, genuine spare parts, and expert mechanics — right here in Tirupati.
+      </p>
+      <div class="hero-btns reveal delay-3">
+        <a href="https://wa.me/9866363599" target="_blank" class="btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat on WhatsApp
+        </a>
+        <a href="#services" class="btn-secondary">
+          View Services &rarr;
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat reveal delay-3">
+          <div class="num">10+</div>
+          <div class="label">Years Experience</div>
+        </div>
+        <div class="stat reveal delay-4">
+          <div class="num">5K+</div>
+          <div class="label">Bikes Serviced</div>
+        </div>
+        <div class="stat reveal delay-5">
+          <div class="num">100%</div>
+          <div class="label">Genuine Parts</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-tag reveal">Our Services</div>
+    <h2 class="section-title reveal delay-1">What We Do</h2>
+    <p class="section-sub reveal delay-2">Expert care for your Yamaha — from routine maintenance to complex repairs.</p>
+
+    <div class="services-grid">
+      <div class="service-card reveal delay-1">
+        <div class="service-icon">🔧</div>
+        <h3>Bike Servicing</h3>
+        <p>Complete periodic maintenance including cleaning, lubrication, chain adjustment, and full bike inspection to keep your ride in top condition.</p>
+      </div>
+      <div class="service-card reveal delay-2">
+        <div class="service-icon">⚙️</div>
+        <h3>Engine Repair</h3>
+        <p>Expert diagnosis and repair of engine issues — from piston and valve work to complete engine overhauls by trained mechanics.</p>
+      </div>
+      <div class="service-card reveal delay-3">
+        <div class="service-icon">🛢️</div>
+        <h3>Oil Change</h3>
+        <p>Genuine Yamaha-grade engine oil replacement to ensure optimal lubrication and extended engine life for your motorcycle.</p>
+      </div>
+      <div class="service-card reveal delay-4">
+        <div class="service-icon">🛑</div>
+        <h3>Brake & Clutch Service</h3>
+        <p>Complete inspection, adjustment, and replacement of brake pads, clutch plates, and cables for safe and responsive riding.</p>
+      </div>
+      <div class="service-card reveal delay-5">
+        <div class="service-icon">🏍️</div>
+        <h3>General Bike Checkup</h3>
+        <p>A thorough multi-point inspection of your bike's electrical, mechanical, and safety systems — perfect before long trips.</p>
+      </div>
+      <div class="service-card reveal delay-5">
+        <div class="service-icon">🔩</div>
+        <h3>Spare Parts</h3>
+        <p>We stock 100% genuine Yamaha spare parts and accessories — so replacements are always authentic and warranty-safe.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why">
+    <div class="why-grid">
+      <div>
+        <div class="section-tag reveal-left">Why Choose Us</div>
+        <h2 class="section-title reveal-left delay-1">Built on Trust &amp; Expertise</h2>
+        <p class="section-sub reveal-left delay-2">Tirupati's most reliable Yamaha service center — where quality meets affordability.</p>
+        <div class="why-list">
+          <div class="why-item reveal-left delay-2">
+            <div class="why-num">01</div>
+            <div>
+              <h4>Certified Mechanics</h4>
+              <p>Our technicians are trained specifically for Yamaha bikes with years of hands-on experience.</p>
+            </div>
+          </div>
+          <div class="why-item reveal-left delay-3">
+            <div class="why-num">02</div>
+            <div>
+              <h4>Genuine Spare Parts</h4>
+              <p>We use only genuine OEM parts — no compromises, no counterfeits. Your bike deserves the best.</p>
+            </div>
+          </div>
+          <div class="why-item reveal-left delay-4">
+            <div class="why-num">03</div>
+            <div>
+              <h4>Transparent Pricing</h4>
+              <p>Upfront quotes, no hidden charges. We explain every repair before we begin.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="why-visual reveal-right">
+        <div class="why-circle">
+          <div class="why-center">
+            <div class="big">★</div>
+            <div style="font-family: var(--font-display); font-size: 2rem; color: var(--white); margin: 4px 0;">4.3/5</div>
+            <small>Customer Rating</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-tag reveal">Get In Touch</div>
+    <h2 class="section-title reveal delay-1">Contact Us</h2>
+    <p class="section-sub reveal delay-2">We're here Monday to Saturday. Drop by or reach out anytime.</p>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item reveal delay-1">
+          <div class="contact-item-icon">🏢</div>
+          <div class="contact-item-text">
+            <label>Business</label>
+            <span>Yamaha Bike Care</span>
+          </div>
+        </div>
+        <div class="contact-item reveal delay-2">
+          <div class="contact-item-icon">📍</div>
+          <div class="contact-item-text">
+            <label>Address</label>
+            <span>Ramalaya Rd, Sanjay Gandhi Colony,<br>Kothapalli, Tirupati,<br>Andhra Pradesh – 517501</span>
+          </div>
+        </div>
+        <div class="contact-item reveal delay-3">
+          <div class="contact-item-icon">📞</div>
+          <div class="contact-item-text">
+            <label>Phone</label>
+            <a href="tel:+919866363599">+91 9866363599</a>
+          </div>
+        </div>
+        <div class="contact-item reveal delay-4">
+          <div class="contact-item-icon">✉️</div>
+          <div class="contact-item-text">
+            <label>Email</label>
+            <a href="mailto:tyamahasuresh@gmail.com">tyamahasuresh@gmail.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-side reveal delay-2">
+        <div class="hours-card">
+          <h4><span>🕐</span> Working Hours</h4>
+          <div class="hours-row">
+            <span class="day">Monday – Friday</span>
+            <span class="time">9:00 AM – 8:00 PM</span>
+          </div>
+          <div class="hours-row">
+            <span class="day">Every Month 20th</span>
+            <span class="time closed">Closed</span>
+          </div>
+          <div class="hours-row">
+            <span class="day">Sunday</span>
+            <span class="time closed">Closed</span>
+          </div>
+        </div>
+        <a href="https://wa.me/9866363599" target="_blank" class="wa-card">
+          <div class="wa-card-icon">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </div>
+          <div>
+            <h5>Chat on WhatsApp</h5>
+            <p>Quick replies · Book a service slot</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section id="map-section" style="padding:0;">
+    <div class="map-header">
+      <div class="section-tag reveal">Find Us</div>
+      <h2 class="section-title reveal delay-1">Our Location</h2>
+    </div>
+    <div class="map-wrapper">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3876.4!2d79.4192!3d13.6288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d4b7f5f5f5f5f%3A0x0!2sRamalaya%20Rd%2C%20Sanjay%20Gandhi%20Colony%2C%20Kothapalli%2C%20Tirupati%2C%20Andhra%20Pradesh%20517501!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+        allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Yamaha Bike Care Tirupati Location">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">YAMAHA <span>BIKE CARE</span></div>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#contact">Contact</a>
+      <a href="#map-section">Location</a>
+    </div>
+    <p>📍 Ramalaya Rd, Sanjay Gandhi Colony, Kothapalli, Tirupati, AP 517501</p>
+    <p style="margin-top:12px;">© 2024 Yamaha Bike Care Tirupati. All rights reserved.</p>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/919866363599" target="_blank" class="wa-float" aria-label="Chat on WhatsApp">
+    <span class="wa-float-label">Chat with us!</span>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <script>
+    // ===== HAMBURGER MENU =====
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    hamburger.addEventListener('keydown', e => {
+      if (e.key === 'Enter') navLinks.classList.toggle('open');
+    });
+    // Close menu on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // ===== NAVBAR SCROLL EFFECT =====
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // ===== INTERSECTION OBSERVER SCROLL ANIMATIONS =====
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    // ===== ACTIVE NAV LINK =====
+    const sections = document.querySelectorAll('section[id]');
+    const navAnchors = document.querySelectorAll('.nav-links a');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navAnchors.forEach(a => a.style.color = '');
+          const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+          if (active) active.style.color = '#E60012';
+        }
+      });
+    }, { threshold: 0.4 });
+    sections.forEach(s => sectionObserver.observe(s));
+  </script>
+</body>
+</html>
